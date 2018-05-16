@@ -1,36 +1,22 @@
 # Shortcuts
-alias copyssh="pbcopy < $HOME/.ssh/id_rsa.pub"
-alias reloadcli="source $HOME/.zshrc"
-alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias copyssh="pbcopy < ~/.ssh/id_ed25519.pub"
+alias edit='sublime'
+alias gitconfig="open ~/.gitconfig"
+alias less='less -FSRXc'
 alias ll="$(brew --prefix coreutils)/libexec/gnubin/ls -ahlF --color --group-directories-first"
-weather() { curl -4 wttr.in/${1:-antwerp} }
-alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
-alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
+alias mkdir='mkdir -pv'
+alias path='echo -e ${PATH//:/\\n}'
+alias sourceZSH ="source ~/.zshrc"
+alias sshServer="ssh admin@kress.myqnapcloud.com -p 2992 -i ~/.ssh/id_server_rsa"
+alias zshconfig="open ~/.zshrc"
 
-# Directories
-alias dotfiles="cd $DOTFILES"
-alias library="cd $HOME/Library"
-alias sites="cd $HOME/Sites"
+# Functions
+cl() { cd "$@"; ls; }
+mcd () { mkdir -p "$1" && cd "$1"; }
+ql () { qlmanage -p "$*" >& /dev/null; }
+swap() { mv $1 $1._tmp; mv $2 $1; mv $1._tmp $2; }
+trash() { command mv "$@" ~/.Trash ; }
+weather() { curl -4 wttr.in/${1:-kissing} }
 
-# Laravel
-alias a="php artisan"
-
-# Vagrant
-alias v="vagrant global-status"
-alias vup="vagrant up"
-alias vhalt="vagrant halt"
-alias vssh="vagrant ssh"
-alias vreload="vagrant reload"
-alias vrebuild="vagrant destroy --force && vagrant up"
-
-# Docker
-alias dstop="docker stop $(docker ps -a -q)"
-alias dpurgecontainers="dstop && docker rm $(docker ps -a -q)"
-alias dpurgeimages="docker rmi $(docker images -q)"
-dbuild() { docker build -t=$1 .; }
-dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
-
-# Git
-alias gst="git status"
-alias gd="git diff"
-alias gl="git log --oneline --decorate --color"
+# Fun
+alias projekt="git" # -> German git (see global gitconfig)
