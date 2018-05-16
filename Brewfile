@@ -1,97 +1,106 @@
 # Taps
-tap 'caskroom/cask'
-tap 'caskroom/eid'
-tap 'caskroom/fonts'
-tap 'caskroom/versions'
-tap 'homebrew/bundle'
+tap "caskroom/cask"
+tap "caskroom/fonts"
+tap "caskroom/versions"
+tap "homebrew/bundle"
+tap "homebrew/core"
+tap "nonchalant/appicon"
 
 # Install ZSH
-brew 'zsh'
-brew 'zsh-completions'
+brew "zsh"
+brew "zsh-completions"
 
-# Install GNU core utilities (those that come with macOS are outdated)
-brew 'coreutils'
+# Improve BASH as Backup
+brew "bash"                 # Latest Bash Version (macOS Version is always outdated)
+brew "bash-completion"
 
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-brew 'findutils'
+# System Improvements
+brew "coreutils"
+brew "findutils"
+brew "git"
+brew "gpg"
+brew "grep"
+brew "mackup"
+brew "mas"
+brew "node"
+brew "openssl"
+brew "python3"
+brew "wget"
 
-# Install Bash 4
-brew 'bash'
+# Fun
+brew "cowsay"
+brew "fortune"
+brew "thefuck"
 
-# Install more recent versions of some macOS tools
-brew 'grep'
+# App Development Tools
+brew "appicon"              # = "nonchalant/appicon/appicon"
+brew "carthage"
+brew "marathon-swift"
+brew "swiftlint"
 
-# Install Binaries
-brew 'awscli'
-brew 'git'
-brew 'hub'
-brew 'tree'
-brew 'mackup'
-brew 'mas'
-brew 'node'
-brew 'trash'
-brew 'wget'
+# Photography Tools
+brew "exiftool"
 
-# Development
-brew 'php'
-brew 'mysql'
+# Audio Tools
+brew "id3lib"
 
 # Apps
-cask 'aerial'
-cask 'alfred'
-cask 'caffeine'
-cask 'docker'
-cask 'eid-be'
-cask 'eid-be-viewer'
-cask 'firefox'
-cask 'google-backup-and-sync'
-cask 'google-chrome'
-cask 'gpgtools'
-cask 'grammarly'
-cask 'insomnia'
-cask 'iterm2'
-cask 'java'
-cask 'mysqlworkbench'
-cask 'now'
-cask 'phpstorm'
-cask 'quip'
-cask 'sequel-pro'
-cask 'shuttle'
-cask 'slack'
-cask 'sublime-text'
-cask 'torbrowser'
-cask 'tower'
-cask 'transmit'
-cask 'vagrant'
-cask 'virtualbox'
-cask 'virtualbox-extension-pack'
-cask 'vlc'
-cask 'zoomus'
+cask "1password"
+cask "adobe-creative-cloud"
+cask "aerial"
+cask "alfred"
+cask "android-studio"
+cask "appcleaner"
+cask "bartender"
+cask "charles"
+cask "controlplane"
+cask "dropbox"
+cask "evernote"
+cask "fantastical"
+cask "forklift"
+cask "franz"
+cask "gimp"
+cask "google-chrome"
+cask "iina"
+cask "istat-menus"
+cask "java"
+cask "jdownloader"
+cask "kaleidoscope"
+cask "little-snitch"
+cask "mediathekview"
+cask "microsoft-office"
+cask "oversight"
+cask "paw"
+cask "pdf-expert"
+cask "sublime-text"
+cask "teamviewer"
+cask "the-unarchiver"
+cask "tower"
 
-# Quicklook
-cask 'qlcolorcode'
-cask 'qlmarkdown'
-cask 'quicklook-json'
-cask 'quicklook-csv'
-cask 'qlstephen'
+# Saved for the future
+# cask "sequel-pro"         # MySQL Management 
+# cask "vlc"                # Replaced by IINA
+
+# Quicklook Plugins
+cask "qlcolorcode"
+cask "qlmarkdown"
+cask "qlstephen"
+cask "qlvideo"
+cask "quicklook-json"
+cask "quicklook-csv"
 
 # Fonts
-cask 'font-source-code-pro-for-powerline'
-cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
+cask "font-fira-code"
 
 # Install Mac App Store apps
-mas '1Password', id: 443987910
-mas 'Byword', id: 420212497
-mas 'Deckset', id: 847496013
-mas 'Gapplin', id: 768053424
-mas 'Giphy Capture', id: 668208984
-mas 'Paw', id: 584653203
-mas 'Sip', id: 507257563
-mas 'Spark', id: 1176895641
-mas 'The Unarchiver', id: 425424353
-mas 'Things', id: 904280696
-mas 'Tweetbot', id: 557168941
-mas 'Unsplash Wallpapers', id: 1284863847
-mas 'WhatsApp', id: 1147396723 
+mas "Airmail 3", id: 918858936
+mas "Bear", id: 1091189122
+mas "Ethernet Status", id: 1186187538
+mas "Keynote", id: 409183694
+mas "Magnet", id: 441258766 
+mas "Microsoft Remote Desktop", id: 715768417 
+mas "Netmo", id: 1192219511
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Parcel", id: 639968404
+mas "Typeface", id: 1062679359

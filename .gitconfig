@@ -1,0 +1,67 @@
+[user]
+	email = account@bennokress.de
+	name = BK | Mobile Apps
+
+# deutsch: projekt <befehl>
+[alias]
+	konfigurieren = config
+	eroeffnen = init
+	nachmachen = clone
+	ziehen = pull
+	hinzufuegen = add
+	druecken = push
+	pressen = push --force
+	verzweigen = branch
+	uebergeben = commit
+	umbasieren = rebase
+	unterscheiden = diff
+	vereinigen = merge
+	bunkern = stash
+	etikettieren = tag
+	rausholen = checkout
+	protokoll = log
+	verwerfen = !git reset --hard HEAD
+	zustand = !git status | cowsay -n | lolcat
+	zuletzt = !git log -1 HEAD | cowsay -n | lolcat
+
+# englisch
+    branchname = "!git rev-parse --abbrev-ref HEAD"
+    prefixedCommit = "!f() { branchname=\"[$(git symbolic-ref --short HEAD)] \"; read -i \"$branchname\" -e && [[ ${#branchname} -lt ${#REPLY} ]] && git commit -m \"$REPLY\" || echo aborted; }; f; unset f branchname"
+	discard = !git reset --hard HEAD
+	
+# cowspeak
+[alias]
+	last = !git log -1 HEAD | cowsay -n | lolcat
+	info = !git status | cowsay -n | lolcat
+
+# get credentials from keychain instead of typing manually
+[credential]
+	helper = osxkeychain
+
+# always preserve the tree structure when using pull --rebase
+[pull]
+	rebase = preserve
+
+# basic settings
+[core]
+	editor = sublime -n -w   # use sublime for interactive rebasing etc.
+	whitespace = cr-at-eol   # ignore whitespace at the end of lines in git diff
+
+[mergetool]
+	prompt = false
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+
+[merge]
+	tool = Kaleidoscope
+
+[difftool]
+	prompt = false
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[diff]
+	tool = Kaleidoscope
