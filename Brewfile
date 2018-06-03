@@ -18,7 +18,8 @@ brew "bash-completion"
 brew "coreutils"
 brew "findutils"
 brew "git"
-brew "gpg"
+brew "gnupg"
+brew "gnupg2"
 brew "grep"
 brew "mackup"
 brew "mas"
@@ -45,8 +46,7 @@ brew "exiftool"
 brew "id3lib"
 
 # Apps
-cask "1password"
-cask "adobe-creative-cloud"
+cask "adobe-creative-cloud" # needs manual installation from dmg file
 cask "aerial"
 cask "alfred"
 cask "android-studio"
@@ -55,8 +55,6 @@ cask "bartender"
 cask "charles"
 cask "controlplane"
 cask "dropbox"
-cask "evernote"
-cask "fantastical"
 cask "forklift"
 cask "franz"
 cask "gimp"
@@ -69,17 +67,11 @@ cask "kaleidoscope"
 cask "little-snitch"
 cask "mediathekview"
 cask "microsoft-office"
-cask "oversight"
 cask "paw"
-cask "pdf-expert"
+cask "staruml"
 cask "sublime-text"
 cask "teamviewer"
-cask "the-unarchiver"
 cask "tower"
-
-# Saved for the future
-# cask "sequel-pro"         # MySQL Management 
-# cask "vlc"                # Replaced by IINA
 
 # Quicklook Plugins
 cask "qlcolorcode"
@@ -92,10 +84,13 @@ cask "quicklook-csv"
 # Fonts
 cask "font-fira-code"
 
-# Install Mac App Store apps
-mas "Airmail 3", id: 918858936
+# Install Mac App Store 
+mas "1Password 7", id: 1333542190
+mas "Apple Configurator 2", id: 1037126344
 mas "Bear", id: 1091189122
 mas "Ethernet Status", id: 1186187538
+mas "Evernote", id: 406056744
+mas "Fantastical 2", id: 975937182
 mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766 
 mas "Microsoft Remote Desktop", id: 715768417 
@@ -103,4 +98,7 @@ mas "Netmo", id: 1192219511
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Parcel", id: 639968404
+mas "PDF Expert", id: 1055273043
+mas "Spark", id: 1176895641
+mas "The Unarchiver", id: 425424353
 mas "Typeface", id: 1062679359
