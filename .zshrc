@@ -1,56 +1,53 @@
 
-# -------------------------------------------------------------------------------- #
-# ---------------------------- Exports configuration ----------------------------- #
-# -------------------------------------------------------------------------------- # 
+##################################################################################################################################
+#                                                            Aliases                                                             #
+##################################################################################################################################
 
-# Path to your dotfiles installation.
-export DOTFILES=$HOME/.dotfiles
+# Shortcuts
+alias copyssh="pbcopy < ~/.ssh/id_ed25519.pub"
+alias edit='sublime'
+alias gitconfig="open ~/.gitconfig"
+alias less='less -FSRXc'
+alias ll="$(brew --prefix coreutils)/libexec/gnubin/ls -ahlF --color --group-directories-first"
+alias mkdir='mkdir -pv'
+alias path='echo -e ${PATH//:/\\n}'
+# alias sourceZSH ="source ~/.zshrc" # --> FIXME: Error when starting the Terminal
+alias sshServer="ssh admin@kress.myqnapcloud.com -p 2992 -i ~/.ssh/id_server_rsa"
+alias zshconfig="open ~/.zshrc"
 
-# You may need to manually set your language environment
-export LC_ALL=de_DE.UTF-8
-export LANG=de_DE.UTF-8
+# Functions
+cl() { cd "$@"; ls; }
+mcd () { mkdir -p "$1" && cd "$1"; }
+ql () { qlmanage -p "$*" >& /dev/null; }
+swap() { mv $1 $1._tmp; mv $2 $1; mv $1._tmp $2; }
+trash() { command mv "$@" ~/.Trash ; }
+weather() { curl -4 wttr.in/${1:-kissing} }
 
-# SSH Key Path Configuration
-export SSH_KEY_PATH="~/.ssh/id_ed25519"
-
-# Make Sublime the default editor
-export EDITOR=sublime
-
-# Search synced local manuals first
-export MANPATH="$DOTFILES/man:$MANPATH"
+# Fun
+alias projekt="git" # -> German git (see global gitconfig)
 
 # -------------------------------------------------------------------------------- #
 # ---------------------------- Spaceship Theme Config ---------------------------- #
 # -------------------------------------------------------------------------------- #
 
+# -> Theme is activated in .zpreztorc
+
 # GIT
 SPACESHIP_GIT_SYMBOL="ᚶ "
+SPACESHIP_DIR_TRUNC_REPO=false # Fix for https://bit.ly/2sQOZ8w
 
 # SPACESHIP PROMPT
 SPACESHIP_BATTERY_SHOW=false
 SPACESHIP_JOBS_SHOW=false
 
 # -------------------------------------------------------------------------------- #
-# ---------------------------------- Oh My ZSH ----------------------------------- #
+# ------------------------------------ Prezto ------------------------------------ #
 # -------------------------------------------------------------------------------- #
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
-# ZSH Terminal Theme
-ZSH_THEME="spaceship" # -> Installed in dotfiles' install.sh
-
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="yyyy-mm-dd"
-
-# Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$DOTFILES
-
-# Oh My ZSH Plugins (Don't add too many)
-plugins=(git brew zsh-nvm zsh-autocompletion zsh-syntax-highlighting)
-
-# Activate Oh-My-Zsh
-source $ZSH/oh-my-zsh.sh
+# Source Prezto
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 # -------------------------------------------------------------------------------- #
 # ------------------------------- The Fuck Config -------------------------------- #
