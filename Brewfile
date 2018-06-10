@@ -22,6 +22,7 @@ brew "git"
 brew "gnupg"
 brew "gnupg2"
 brew "grep"
+brew "jenv"
 brew "mackup"
 brew "mas"
 brew "node"
@@ -47,6 +48,7 @@ brew "exiftool"
 brew "id3lib"
 
 # Apps
+cask "1password"
 cask "adobe-creative-cloud" # needs manual installation from dmg file
 cask "aerial"
 cask "alfred"
@@ -62,17 +64,20 @@ cask "gimp"
 cask "google-chrome"
 cask "iina"
 cask "istat-menus"
+cask "java8"
 cask "java"
 cask "jdownloader"
 cask "kaleidoscope"
-cask "little-snitch"
+cask "little-snitch"        # needs manual installation from dmg file
 cask "mediathekview"
 cask "microsoft-office"
 cask "paw"
 cask "staruml"
 cask "sublime-text"
 cask "teamviewer"
+cask "torbrowser"
 cask "tower"
+cask "vlc"
 
 # Quicklook Plugins
 cask "qlcolorcode"
@@ -86,7 +91,6 @@ cask "quicklook-csv"
 cask "font-fira-code"
 
 # Install Mac App Store 
-mas "1Password 7", id: 1333542190
 mas "Apple Configurator 2", id: 1037126344
 mas "Bear", id: 1091189122
 mas "Ethernet Status", id: 1186187538
