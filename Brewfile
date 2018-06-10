@@ -3,6 +3,7 @@ tap "caskroom/cask"
 tap "caskroom/fonts"
 tap "caskroom/versions"
 tap "homebrew/bundle"
+tap "homebrew/command-not-found"
 tap "homebrew/core"
 tap "nonchalant/appicon"
 
