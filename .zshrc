@@ -34,6 +34,7 @@ alias projekt="git" # -> German git (see global gitconfig)
 
 # GIT
 SPACESHIP_GIT_SYMBOL="ᚶ "
+SPACESHIP_DIR_TRUNC_REPO=false # Fix for https://bit.ly/2sQOZ8w
 
 # SPACESHIP PROMPT
 SPACESHIP_BATTERY_SHOW=false
