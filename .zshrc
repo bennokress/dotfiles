@@ -23,6 +23,54 @@ swap() { mv $1 $1._tmp; mv $2 $1; mv $1._tmp $2; }
 trash() { command mv "$@" ~/.Trash ; }
 weather() { curl -4 wttr.in/${1:-kissing} }
 
+# Update Function
+updateDotfiles() {
+    ORIGINAL_DIRECTORY="$(pwd)"
+    # Dotfiles
+    cd ~/.dotfiles
+    git stash push -m "Stashed by CLI Update Function"
+    git fetch --all
+    git checkout -B master
+    # Private Dotfiles
+    cd ~/.private_dotfiles
+    git stash push -m "Stashed by CLI Update Function"
+    git fetch --all
+    git checkout -B master
+    # Go back to previous working directory
+    cd $ORIGINAL_DIRECTORY
+}
+
+updateHomebrew() {
+    ORIGINAL_DIRECTORY="$(pwd)"
+    cd ~/.dotfiles
+    brew bundle
+    brew update
+    brew upgrade --cleanup
+    brew doctor
+    cd $ORIGINAL_DIRECTORY
+}
+
+updatePython() {
+    pip3 install --upgrade pip setuptools wheel
+}
+
+showMacAppStoreUpdates() {
+    if [[ $(mas outdated | wc -l) -gt 0 ]]
+    then
+        echo "Please update the following Applications on the Mac App Store:"
+        mas outdated
+    else
+        echo "Applications from the Mac App Store are up to date."
+    fi
+}
+
+update() {
+    updateDotfiles
+    updateHomebrew
+    updatePython
+    showMacAppStoreUpdates
+}
+
 # Fun
 alias projekt="git" # -> German git (see global gitconfig)
 
@@ -48,6 +96,13 @@ SPACESHIP_JOBS_SHOW=false
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+# -------------------------------------------------------------------------------- #
+# ------------------------------------- JAVA ------------------------------------- #
+# -------------------------------------------------------------------------------- #
+
+# jenv (JAVA environment) Configuration --> https://www.jenv.be/
+eval "$(jenv init -)"
 
 # -------------------------------------------------------------------------------- #
 # ------------------------------- The Fuck Config -------------------------------- #

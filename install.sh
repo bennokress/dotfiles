@@ -11,23 +11,21 @@ CLEARCOLOR="\033[0m"
 ALERTCOLOR="\033[0;31m"
 SUCCESSCOLOR="\033[0;32m"
 
-# 2 - Giving some instructions for manual installation
-printf "%b" "${ALERTCOLOR}Please open the Mac App Store and install Xcode!\n" # Needed for mas + marathon
-printf "%b" "${CLEARCOLOR}After Xcode is installed press return (or ctrl + c to cancel this setup).\n"
-read input
-printf "%b" "${ALERTCOLOR}Now open Xcode and accept the license agreement!\n" # Needed for Homebrew and others
-printf "%b" "${CLEARCOLOR}Come back afterwards and press return (or ctrl + c to cancel this setup).\n"
-read input
-printf "%b" "${ALERTCOLOR}Lastly go to System Preferences --> iCloud and deactivate \"Optimize Mac Storage\"!\n"
-printf "%b" "${CLEARCOLOR}You can reactivate it after the setup process.\n"
-printf "%b" "${CLEARCOLOR}Wait for the Mackup folder to be downloaded and press return (or ctrl + c to cancel this setup).\n"
-read input
+# 3 - Set permissions for SSH - see https://gist.github.com/grenade/6318301 and https://stackoverflow.com/a/32618572/6333824
+sudo find "$HOME/.ssh" -name "*" -exec chmod 644 {} +
+sudo find "$HOME/.ssh" -name "id_*" -exec chmod 600 {} +
+sudo find "$HOME/.ssh" -name "id_*.pub" -exec chmod 644 {} +
+sudo chmod 700 "$HOME/.ssh"
 
-# 3 - Prepare the Setup process
-xcode-select --install
+# 4 - Prepare the Setup process
 mkdir -p "$HOME/Library/Application Support/Google/Chrome" # Fixes the 1Password Chrome Extension
+xcode-select --install
 
-# 4 - Setup private stuff (from private repo) - ADJUST TO YOUR OWN NEEDS OR DELETE
+printf "%b" "${ALERTCOLOR}Wait for the Xcode installation to finish?\n"
+printf "%b" "${CLEARCOLOR}Afterwards please press return (or ctrl + c to cancel this setup).\n"
+read input
+
+# 5 - Setup private stuff (from private repo) - ADJUST TO YOUR OWN NEEDS OR DELETE
 git clone git@github.com:bennokress/private_dotfiles.git "$HOME/.private_dotfiles"
 $HOME/.private_dotfiles/install.sh
 
@@ -76,11 +74,7 @@ cd contrib
 git submodule init
 git submodule update
 
-# 3 - Install Terminal Theme via Prezto (-> https://github.com/denysdovhan/spaceship-prompt#prezto)
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$HOME/.dotfiles/themes/spaceship-prompt"
-ln -s "$HOME/.dotfiles/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.dotfiles/themes/spaceship.zsh-theme"
-
-# 4 - Symlink ZSH related dotfiles
+# 3 - Symlink ZSH related dotfiles
 rm -rf "$HOME/.zshrc"
 rm -rf "$HOME/.zshenv"
 rm -rf "$HOME/.zprofile"
@@ -94,11 +88,14 @@ ln -s "$HOME/.dotfiles/.zpreztorc" "$HOME/.zpreztorc"
 ln -s "$HOME/.dotfiles/.zlogout" "$HOME/.zlogout"
 ln -s "$HOME/.dotfiles/.zlogin" "$HOME/.zlogin"
 
-# 5 - Make ZSH the default shell environment
+# 4 - Make ZSH the default shell environment
 chsh -s /bin/zsh
 
-# 6 - Create a "sublime" shortcut for Terminal (-> allows Sublime to be the default editor in Terminal)
+# 5 - Create a "sublime" shortcut for Terminal (-> allows Sublime to be the default editor in Terminal)
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" "/usr/local/bin/sublime"
+
+# 6 - Remove "Last login" in Home folder
+touch "$HOME/.hushlogin"
 
 ##################################################################################################################################
 #                                                              Git                                                               #
@@ -116,7 +113,7 @@ ln -s "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
 ln -s "$HOME/.dotfiles/.mackup.cfg" "$HOME/.mackup.cfg"
 
 # 2 - Restore Mackup
-mackup restore
+mackup restore --force
 
 ##################################################################################################################################
 
