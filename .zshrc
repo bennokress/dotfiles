@@ -43,7 +43,7 @@ updateDotfiles() {
 updateHomebrew() {
     ORIGINAL_DIRECTORY="$(pwd)"
     cd ~/.dotfiles
-    brew bundle
+    # brew bundle # --> may lead to problems when formulae have been deleted in monthly branch, but not on master --> those would get reinstalled!
     brew update
     brew upgrade --cleanup
     brew doctor
