@@ -38,6 +38,7 @@ brew "thefuck"
 # App Development Tools
 brew "appicon"              # = "nonchalant/appicon/appicon"
 brew "carthage"
+brew "graphviz"             # Requirement for parsing PlantUML in Sublime Text
 brew "marathon-swift"
 brew "swiftlint"
 
@@ -65,14 +66,13 @@ cask "google-chrome"
 cask "iina"
 cask "istat-menus"
 cask "java8"
-cask "java"
 cask "jdownloader"
 cask "kaleidoscope"
 cask "little-snitch"        # needs manual installation from dmg file
 cask "mediathekview"
 cask "microsoft-office"
 cask "paw"
-cask "staruml"
+cask "semulov"
 cask "sublime-text"
 cask "teamviewer"
 cask "torbrowser"
