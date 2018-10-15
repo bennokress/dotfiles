@@ -16,6 +16,7 @@ brew "bash"                 # Latest Bash Version (macOS Version is always outda
 brew "bash-completion"
 
 # System Improvements
+brew "bat"
 brew "coreutils"
 brew "findutils"
 brew "git"
@@ -76,7 +77,7 @@ cask "semulov"
 cask "sublime-text"
 cask "teamviewer"
 cask "torbrowser"
-cask "tower"
+cask "tower2"
 cask "vlc"
 
 # Quicklook Plugins
@@ -98,12 +99,14 @@ mas "Evernote", id: 406056744
 mas "Fantastical 2", id: 975937182
 mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766 
-mas "Microsoft Remote Desktop", id: 715768417 
+mas "Microsoft Remote Desktop 10", id: 1295203466
 mas "Netmo", id: 1192219511
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Parcel", id: 639968404
 mas "PDF Expert", id: 1055273043
+mas "Pixelmator Pro", id: 1289583905
 mas "Spark", id: 1176895641
 mas "The Unarchiver", id: 425424353
 mas "Typeface", id: 1062679359
+mas "Xcode", id: 497799835
