@@ -65,7 +65,7 @@ showMacAppStoreUpdates() {
 }
 
 update() {
-    updateDotfiles
+    # updateDotfiles
     updateHomebrew
     updatePython
     showMacAppStoreUpdates
