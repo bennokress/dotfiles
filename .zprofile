@@ -37,6 +37,9 @@ export SSH_KEY_PATH="~/.ssh/id_ed25519"
 # Search synced local manuals first
 export MANPATH="$DOTFILES/man:$MANPATH"
 
+# FPATH (Functions)
+export FPATH="$FPATH:/usr/local/share/zsh-completions"
+
 # Home Path Names
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export JAVA_HOME="$(/usr/libexec/java_home)"
@@ -51,7 +54,7 @@ export PATH="$DOTFILES/bin:$PATH"
 # Then load local bin directories before anything else
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin"
 
-# Then load Node everything else. Rule of thumb: project specific before global
+# Then load everything else. Rule of thumb: project specific before global
 export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PATH="$PATH:$NODE_MODULES_HOME"

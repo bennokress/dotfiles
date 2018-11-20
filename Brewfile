@@ -6,6 +6,7 @@ tap "homebrew/bundle"
 tap "homebrew/command-not-found"
 tap "homebrew/core"
 tap "nonchalant/appicon"
+tap "vapor/tap"
 
 # Install ZSH
 brew "zsh"
@@ -43,6 +44,9 @@ brew "graphviz"             # Requirement for parsing PlantUML in Sublime Text
 brew "marathon-swift"
 brew "swiftlint"
 
+# Vapor Tools
+brew "vapor"                # = "vapor/tap/vapor"
+
 # Photography Tools
 brew "exiftool"
 
@@ -59,6 +63,7 @@ cask "appcleaner"
 cask "bartender"
 cask "charles"
 cask "controlplane"
+cask "docker"
 cask "dropbox"
 cask "forklift"
 cask "franz"
