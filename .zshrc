@@ -6,6 +6,7 @@
 # Shortcuts
 alias copyssh="pbcopy < ~/.ssh/id_ed25519.pub"
 alias edit='sublime'
+alias git='hub'
 alias gitconfig="open ~/.gitconfig"
 alias less='less -FSRXc'
 alias ll="gls -lahF --color --group-directories-first"
@@ -73,6 +74,12 @@ update() {
 
 # Fun
 alias projekt="git" # -> German git (see global gitconfig)
+
+# Fiducia
+alias npm_fgi="docker run -it --rm -p 8100:8100 -p 35729:35729 --privileged -v ~/.gradle:/root/.gradle -v \$PWD:/workdir:rw nexus.in.fiduciagad.de:50017/mobile/ionic-intern:4.1.latest npm"
+alias ionic_fgi="docker run -it --rm -p 8100:8100 -p 35729:35729 --privileged -v ~/.gradle:/root/.gradle -v \$PWD:/workdir:rw nexus.in.fiduciagad.de:50017/mobile/ionic-intern:4.1.latest ionic"
+alias docker41="docker run -it --rm -p 8100:8100 -p 35729:35729 --privileged -v ~/.gradle:/root/.gradle -v \$PWD:/workdir:rw nexus.in.fiduciagad.de:50017/mobile/ionic-intern:4.1.latest"
+
 
 # -------------------------------------------------------------------------------- #
 # ---------------------------- Spaceship Theme Config ---------------------------- #
