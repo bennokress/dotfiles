@@ -15,11 +15,12 @@ alias path='echo -e ${PATH//:/\\n}'
 # alias sourceZSH ="source ~/.zshrc" # --> FIXME: Error when starting the Terminal
 alias sshServer="ssh admin@kress.myqnapcloud.com -p 2992 -i ~/.ssh/id_server_rsa"
 alias zshconfig="open ~/.zshrc"
+alias xcode="xed ." # opens the xcworkspace if present and xcodeproj otherwise
 
 # Functions
 cl() { cd "$@"; ll; }
-mcd () { mkdir -p "$1" && cd "$1"; }
-ql () { qlmanage -p "$*" >& /dev/null; }
+mcd() { mkdir -p "$1" && cd "$1"; }
+ql() { qlmanage -p "$*" >& /dev/null; }
 swap() { mv $1 $1._tmp; mv $2 $1; mv $1._tmp $2; }
 trash() { command mv "$@" ~/.Trash ; }
 weather() { curl -4 wttr.in/${1:-"$@"} }
