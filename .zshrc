@@ -4,6 +4,8 @@
 ##################################################################################################################################
 
 # Shortcuts
+alias zshrc="subl ~/.dotfiles/.zshrc"
+alias brewfile="subl ~/.dotfiles/Brewfile"
 alias copyssh="pbcopy < ~/.ssh/id_ed25519.pub"
 alias edit='sublime'
 alias git='hub'

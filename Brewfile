@@ -19,7 +19,9 @@ brew "bash-completion"
 # System Improvements
 brew "bat"
 brew "coreutils"
+brew "fd"
 brew "findutils"
+brew "fx"
 brew "git"
 brew "gnupg"
 brew "gnupg2"
@@ -81,7 +83,7 @@ cask "jdownloader"
 cask "kaleidoscope"
 cask "little-snitch"        # needs manual installation from dmg file
 cask "mediathekview"
-cask "microsoft-office"
+cask "mounty"
 cask "paw"
 cask "runjs"
 cask "semulov"
@@ -111,8 +113,11 @@ mas "Fantastical 2", id: 975937182
 mas "FileBot", id: 905384638
 mas "Keynote", id: 409183694
 mas "Liya", id: 455484422
-mas "Magnet", id: 441258766 
+mas "Magnet", id: 441258766
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Remote Desktop 10", id: 1295203466
+mas "Microsoft Word", id: 462054704
 mas "NepTunes", id: 1006739057
 mas "Netmo", id: 1192219511
 mas "Numbers", id: 409203825
