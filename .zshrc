@@ -14,6 +14,7 @@ alias less='less -FSRXc'
 alias ll="gls -lahF --color --group-directories-first"
 alias mkdir='mkdir -pv'
 alias path='echo -e ${PATH//:/\\n}'
+alias gem='rvm all do gem'
 # alias sourceZSH ="source ~/.zshrc" # --> FIXME: Error when starting the Terminal
 alias sshServer="ssh admin@kress.myqnapcloud.com -p 2992 -i ~/.ssh/id_server_rsa"
 alias zshconfig="open ~/.zshrc"
@@ -45,17 +46,20 @@ updateDotfiles() {
 }
 
 updateHomebrew() {
-    ORIGINAL_DIRECTORY="$(pwd)"
-    cd ~/.dotfiles
-    # brew bundle # --> may lead to problems when formulae have been deleted in monthly branch, but not on master --> those would get reinstalled!
     brew update
-    brew upgrade --cleanup
+    brew upgrade
+    brew cask upgrade
+    brew cleanup
     brew doctor
-    cd $ORIGINAL_DIRECTORY
 }
 
 updatePython() {
     pip3 install --upgrade pip setuptools wheel
+}
+
+updateRuby() {
+    rvm all do gem update --quiet # updates all gems to latest version
+    rvm all do gem cleanup # removes unused files
 }
 
 showMacAppStoreUpdates() {
@@ -69,9 +73,9 @@ showMacAppStoreUpdates() {
 }
 
 update() {
-    # updateDotfiles
     updateHomebrew
     updatePython
+    updateRuby
     showMacAppStoreUpdates
 }
 
