@@ -76,7 +76,6 @@ cask "duet"
 cask "forklift"
 cask "franz"
 cask "gimp"
-cask "google-chrome"
 cask "icons8"
 cask "iina"
 cask "impactor"
@@ -88,12 +87,13 @@ cask "knockknock"
 cask "little-snitch"        # needs manual installation from dmg file
 cask "mediathekview"
 cask "mounty"
+cask "odio"
+cask "openconnect-gui"
 cask "paw"
 cask "runjs"
 cask "semulov"
 cask "sublime-text"
 cask "teamviewer"
-cask "tor-browser"
 cask "tower"
 cask "vlc"
 
@@ -111,6 +111,9 @@ cask "font-fira-code"
 # Install Mac App Store 
 mas "Apple Configurator 2", id: 1037126344
 mas "Bear", id: 1091189122
+mas "ColorSlurp", id: 1287239339
+mas "DevCleaner", id: 1388020431
+mas "Disk Graph", id: 697942581
 mas "Ethernet Status", id: 1186187538
 mas "Evernote", id: 406056744
 mas "Fantastical 2", id: 975937182
