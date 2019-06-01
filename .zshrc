@@ -1,3 +1,6 @@
+CLEARCOLOR="\033[0m"
+ALERTCOLOR="\033[0;31m"
+SUCCESSCOLOR="\033[0;32m"
 
 ##################################################################################################################################
 #                                                            Aliases                                                             #
@@ -9,15 +12,14 @@ alias brewfile="subl ~/.dotfiles/Brewfile"
 alias copyssh="pbcopy < ~/.ssh/id_ed25519.pub"
 alias edit='sublime'
 alias git='hub'
-alias gitconfig="open ~/.gitconfig"
+alias gitconfig="subl ~/.gitconfig"
 alias less='less -FSRXc'
 alias ll="gls -lahF --color --group-directories-first"
 alias mkdir='mkdir -pv'
 alias path='echo -e ${PATH//:/\\n}'
 alias gem='rvm all do gem'
-# alias sourceZSH ="source ~/.zshrc" # --> FIXME: Error when starting the Terminal
+alias reload="source ~/.zshrc && clear"
 alias sshServer="ssh admin@kress.myqnapcloud.com -p 2992 -i ~/.ssh/id_server_rsa"
-alias zshconfig="open ~/.zshrc"
 alias xcode="xed ." # opens the xcworkspace if present and xcodeproj otherwise
 
 # Functions
@@ -27,23 +29,6 @@ ql() { qlmanage -p "$*" >& /dev/null; }
 swap() { mv $1 $1._tmp; mv $2 $1; mv $1._tmp $2; }
 trash() { command mv "$@" ~/.Trash ; }
 weather() { curl -4 wttr.in/${1:-"$@"} }
-
-# Update Function
-updateDotfiles() {
-    ORIGINAL_DIRECTORY="$(pwd)"
-    # Dotfiles
-    cd ~/.dotfiles
-    git stash push -m "Stashed by CLI Update Function"
-    git fetch --all
-    git checkout -B master
-    # Private Dotfiles
-    cd ~/.private_dotfiles
-    git stash push -m "Stashed by CLI Update Function"
-    git fetch --all
-    git checkout -B master
-    # Go back to previous working directory
-    cd $ORIGINAL_DIRECTORY
-}
 
 updateHomebrew() {
     brew update
@@ -65,10 +50,10 @@ updateRuby() {
 showMacAppStoreUpdates() {
     if [[ $(mas outdated | wc -l) -gt 0 ]]
     then
-        echo "Please update the following Applications on the Mac App Store:"
+        printf "%b" "${ALERTCOLOR}Please update the following Applications on the Mac App Store:${CLEARCOLOR}\n"
         mas outdated
     else
-        echo "Applications from the Mac App Store are up to date."
+        printf "%b" "${SUCCESSCOLOR}Applications from the Mac App Store are up to date.${CLEARCOLOR}\n"
     fi
 }
 
@@ -77,6 +62,16 @@ update() {
     updatePython
     updateRuby
     showMacAppStoreUpdates
+}
+
+cleanup() {
+    update
+    brew bundle install --global
+    brew bundle cleanup --global
+    printf "%b" "${ALERTCOLOR}The above listed Homebrew items will be deleted. Adjust your Brewfile now to save individual items.${CLEARCOLOR}\n"
+    printf "%b" "${ALERTCOLOR}Press ↩ to continue or CTRL + C to cancel ...${CLEARCOLOR}\n"
+    read input
+    brew bundle cleanup --global --force --verbose
 }
 
 # Fun
@@ -110,13 +105,6 @@ SPACESHIP_JOBS_SHOW=false
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-
-# -------------------------------------------------------------------------------- #
-# ------------------------------------- JAVA ------------------------------------- #
-# -------------------------------------------------------------------------------- #
-
-# jenv (JAVA environment) Configuration --> https://www.jenv.be/
-eval "$(jenv init -)"
 
 # -------------------------------------------------------------------------------- #
 # ------------------------------- The Fuck Config -------------------------------- #

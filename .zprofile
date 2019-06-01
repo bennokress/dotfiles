@@ -37,7 +37,6 @@ export FPATH="$FPATH:/usr/local/share/zsh-completions"
 # Home Path Names
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export JAVA_HOME="$(/usr/libexec/java_home)"
-export JENV_ROOT="/usr/local/opt/jenv"
 export NODE_HOME=$HOME/.node/bin
 export NODE_MODULES_HOME=$HOME/node_modules/.bin
 export RVM_HOME=$HOME/.rvm/bin
