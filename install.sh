@@ -41,9 +41,13 @@ fi
 # 2 - Update
 brew update
 
-# 3 - Install from Brewfile
+# 3 - Symlink Brewfile
+rm -rf "$HOME/.Brewfile"
+ln -s "$HOME/.dotfiles/Brewfile" "$HOME/.Brewfile"
+
+# 4 - Install from Brewfile
 brew tap homebrew/bundle
-brew bundle
+brew bundle install --global
 
 # Asks for the password one time, keeps it until the script stops running
 sudo -v
@@ -53,12 +57,17 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 #                                                              Ruby                                                              #
 ##################################################################################################################################
 
-# 1 - Install RVM (Ruby Version Manager) and latest stable Ruby
+# 1 - Symlink RVM Setting
+rm -rf "$HOME/.rvmrc"
+ln -s "$HOME/.dotfiles/.rvmrc" "$HOME/.rvmrc"
+
+# 2 - Install RVM (Ruby Version Manager) and latest stable Ruby
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 curl -sSL https://get.rvm.io | bash -s stable --ruby
 
-# 2 - Install CocoaPods via Ruby
-sudo gem install cocoapods
+# 3 - Install Gems
+rvm all do gem install cocoapods
+rvm all do gem install lolcat
 
 ##################################################################################################################################
 #                                                              ZSH                                                               #

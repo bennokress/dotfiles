@@ -1,10 +1,11 @@
 # Taps
-tap "caskroom/cask"
-tap "caskroom/fonts"
-tap "caskroom/versions"
 tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 tap "homebrew/command-not-found"
 tap "homebrew/core"
+tap "homebrew/services"
 tap "nonchalant/appicon"
 tap "vapor/tap"
 
@@ -22,17 +23,19 @@ brew "coreutils"
 brew "fd"
 brew "findutils"
 brew "fx"
+brew "gifski"
 brew "git"
 brew "gnupg"
 brew "gnupg2"
 brew "grep"
 brew "hub"
-brew "jenv"
 brew "jsonpp"
+brew "librsvg"
 brew "mackup"
 brew "mas"
 brew "node"
 brew "openssl"
+brew "postgresql"
 brew "python3"
 brew "wget"
 
@@ -43,13 +46,16 @@ brew "thefuck"
 
 # App Development Tools
 brew "appicon"              # = "nonchalant/appicon/appicon"
+brew "bitrise"
 brew "carthage"
 brew "graphviz"             # Requirement for parsing PlantUML in Sublime Text
 brew "marathon-swift"
+brew "swiftformat"
 brew "swiftlint"
 
 # Vapor Tools
 brew "vapor"                # = "vapor/tap/vapor"
+brew "vapor/tap/ctls"
 
 # Photography Tools
 brew "exiftool"
@@ -88,6 +94,7 @@ cask "little-snitch"        # needs manual installation from dmg file
 cask "mediathekview"
 cask "mounty"
 cask "odio"
+cask "onedrive"
 cask "openconnect-gui"
 cask "paw"
 cask "runjs"
@@ -107,6 +114,7 @@ cask "quicklook-json"
 
 # Fonts
 cask "font-fira-code"
+cask "font-hack-nerd-font"  # = "homebrew/cask-fonts"
 
 # Install Mac App Store 
 mas "Apple Configurator 2", id: 1037126344

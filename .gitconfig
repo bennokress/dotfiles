@@ -28,12 +28,12 @@
     branchname = "!git rev-parse --abbrev-ref HEAD"
     prefixedCommit = "!f() { branchname=\"[$(git symbolic-ref --short HEAD)] \"; read -i \"$branchname\" -e && [[ ${#branchname} -lt ${#REPLY} ]] && git commit -m \"$REPLY\" || echo aborted; }; f; unset f branchname"
 	discard = !git reset --hard HEAD
+    apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
+    graph = log --all --graph --decorate --oneline --simplify-by-decoration
 	
 # cowspeak
-[alias]
 	last = !git log -1 HEAD | cowsay -n | lolcat
 	info = !git status | cowsay -n | lolcat
-    apply-gitignore = !git ls-files -ci --exclude-standard -z | xargs -0 git rm --cached
 
 # get credentials from keychain instead of typing manually
 [credential]
@@ -66,3 +66,21 @@
 
 [diff]
 	tool = Kaleidoscope
+
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
