@@ -18,7 +18,6 @@ sudo find "$HOME/.ssh" -name "id_*.pub" -exec chmod 644 {} +
 sudo chmod 700 "$HOME/.ssh"
 
 # 4 - Prepare the Setup process
-mkdir -p "$HOME/Library/Application Support/Google/Chrome" # Fixes the 1Password Chrome Extension
 xcode-select --install
 
 printf "%b" "${ALERTCOLOR}Wait for the Xcode installation to finish?\n"
@@ -26,7 +25,7 @@ printf "%b" "${CLEARCOLOR}Afterwards please press return (or ctrl + c to cancel 
 read input
 
 # 5 - Setup private stuff (from private repo) - ADJUST TO YOUR OWN NEEDS OR DELETE
-git clone git@github.com:bennokress/private_dotfiles.git "$HOME/.private_dotfiles"
+git clone --single-branch --branch Sandra git@github.com:bennokress/private_dotfiles.git "$HOME/.private_dotfiles"
 $HOME/.private_dotfiles/install.sh
 
 ##################################################################################################################################
