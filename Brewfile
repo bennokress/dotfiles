@@ -49,6 +49,7 @@ brew "id3lib"
 cask "1password"
 cask "aerial"
 cask "alfred"
+cask "algodoo"
 cask "appcleaner"
 cask "bartender"
 cask "brave-browser"
@@ -56,13 +57,17 @@ cask "controlplane"
 cask "dropbox"
 cask "franz"
 cask "gimp"
+cask "gitkraken"
 cask "iina"
+cask "java"
+cask "malwarebytes"
 cask "mounty"
 cask "odio"
 cask "onedrive"
 cask "semulov"
 cask "sublime-text"
 cask "teamviewer"
+cask "vmware-fusion"
 
 # Quicklook Plugins
 cask "qlcolorcode"
@@ -75,9 +80,11 @@ cask "quicklook-json"
 # Fonts
 cask "font-fira-code"
 
-# Install Mac App Store 
+# Install Mac App Store
+mas "Airmail 3", id: 918858936
 mas "Evernote", id: 406056744
 mas "Fantastical 2", id: 975937182
+mas "Focus", id: 777233759
 mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
 mas "Microsoft Excel", id: 462058435
