@@ -7,20 +7,20 @@ SUCCESSCOLOR="\033[0;32m"
 ##################################################################################################################################
 
 # Shortcuts
-alias zshrc="subl ~/.dotfiles/.zshrc"
-alias brewfile="subl ~/.dotfiles/Brewfile"
-alias copyssh="pbcopy < ~/.ssh/id_ed25519.pub"
-alias edit='sublime'
+alias zshrc='subl ~/.dotfiles/.zshrc'
+alias brewfile='subl ~/.dotfiles/Brewfile'
+alias copyssh='pbcopy < ~/.ssh/id_ed25519.pub'
+alias edit='subl'
 alias git='hub'
-alias gitconfig="subl ~/.gitconfig"
+alias gitconfig='subl ~/.gitconfig'
 alias less='less -FSRXc'
-alias ll="gls -lahF --color --group-directories-first"
+alias ll='gls -lahF --color --group-directories-first'
 alias mkdir='mkdir -pv'
 alias path='echo -e ${PATH//:/\\n}'
 alias gem='rvm all do gem'
-alias reload="source ~/.zshrc && clear"
-alias sshServer="ssh admin@kress.myqnapcloud.com -p 2992 -i ~/.ssh/id_server_rsa"
-alias xcode="xed ." # opens the xcworkspace if present and xcodeproj otherwise
+alias reload='source ~/.zshrc && clear'
+alias sshServer='ssh admin@kress.myqnapcloud.com -p 2992 -i ~/.ssh/id_server_rsa'
+alias xcode='xed .' # opens the xcworkspace if present and xcodeproj otherwise
 
 # Functions
 cl() { cd "$@"; ll; }
@@ -90,12 +90,43 @@ alias docker41="docker run -it --rm -p 8100:8100 -p 35729:35729 --privileged -v 
 # -> Theme is activated in .zpreztorc
 
 # GIT
-SPACESHIP_GIT_SYMBOL="ᚶ "
 SPACESHIP_DIR_TRUNC_REPO=false # Fix for https://bit.ly/2sQOZ8w
 
 # SPACESHIP PROMPT
 SPACESHIP_BATTERY_SHOW=false
 SPACESHIP_JOBS_SHOW=false
+
+# ICONS --> Those need the Powerline Font activated (https://github.com/ryanoasis/nerd-fonts)
+SPACESHIP_AWS_SYMBOL=" "
+SPACESHIP_BATTERY_SYMBOL_CHARGING=" "
+SPACESHIP_BATTERY_SYMBOL_DISCHARGING=" "
+SPACESHIP_BATTERY_SYMBOL_FULL=" "
+SPACESHIP_CHAR_SYMBOL=" " # Alternatives: , , , , ⇢, , , 
+# SPACESHIP_CONDA_SYMBOL=" "
+SPACESHIP_DIR_LOCK_SYMBOL=" "
+SPACESHIP_DOCKER_SYMBOL=" "
+SPACESHIP_DOTNET_SYMBOL=" "
+SPACESHIP_ELIXIR_SYMBOL=" "
+SPACESHIP_ELM_SYMBOL=" "
+SPACESHIP_EMBER_SYMBOL=" "
+SPACESHIP_GIT_SYMBOL="שׂ "
+SPACESHIP_GOLANG_SYMBOL=" "
+SPACESHIP_HASKELL_SYMBOL=" "
+# SPACESHIP_HG_SYMBOL=" "
+SPACESHIP_JOBS_SYMBOL=" "
+SPACESHIP_JULIA_SYMBOL=" "
+# SPACESHIP_KUBECONTEXT_SYMBOL=" "
+SPACESHIP_NODE_SYMBOL=" "
+SPACESHIP_PACKAGE_SYMBOL=" "
+SPACESHIP_PHP_SYMBOL=" "
+SPACESHIP_PYENV_SYMBOL=" "
+SPACESHIP_RUBY_SYMBOL=" "
+SPACESHIP_RUST_SYMBOL=" "
+SPACESHIP_SWIFT_SYMBOL=" "
+# SPACESHIP_TERRAFORM_SYMBOL=" "
+# SPACESHIP_VENV_SYMBOL=" "
+SPACESHIP_XCODE_SYMBOL=" "
+
 
 # -------------------------------------------------------------------------------- #
 # ------------------------------------ Prezto ------------------------------------ #
