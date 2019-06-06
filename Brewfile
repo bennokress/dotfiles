@@ -86,7 +86,7 @@ cask "icons8"
 cask "iina"
 cask "impactor"
 cask "istat-menus"
-cask "java8"
+cask "java"
 cask "jdownloader"
 cask "kaleidoscope"
 cask "knockknock"
@@ -119,6 +119,7 @@ cask "font-hack-nerd-font"  # = "homebrew/cask-fonts"
 # Install Mac App Store 
 mas "Apple Configurator 2", id: 1037126344
 mas "Bear", id: 1091189122
+mas "Cardhop", id: 1290358394
 mas "ColorSlurp", id: 1287239339
 mas "DevCleaner", id: 1388020431
 mas "Disk Graph", id: 697942581
@@ -126,6 +127,7 @@ mas "Ethernet Status", id: 1186187538
 mas "Evernote", id: 406056744
 mas "Fantastical 2", id: 975937182
 mas "FileBot", id: 905384638
+mas "Gifski", id: 1351639930
 mas "Keynote", id: 409183694
 mas "Liya", id: 455484422
 mas "Magnet", id: 441258766
